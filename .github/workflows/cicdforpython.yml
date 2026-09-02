@@ -1,0 +1,43 @@
+name : python_pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - uses : actions/checkout@V4
+              with:
+                repository : RaGuL-26/pyhtoncicd
+                path : firstjobpath
+
+            - name: firstpyrun
+              run: pyhton firstjobpath/pyss.py
+
+    job2:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses : actions/checkout@V4
+              with:
+                repository : RaGuL-26/pyhtoncicd
+                path : secondjobpath
+
+            - name: secondpyrun
+              run: pyhton firstjobpath/secondfile.py
+
+    job3:
+        runs-on: ubuntu-latest
+        needs: [job1,job2]
+
+        steps:
+            - uses : actions/checkout@V4
+              with:
+                repository : RaGuL-26/pyhtoncicd
+                path : secondjobpath
+
+            - name: thirdpyrun
+              run: pyhton firstjobpath/thirdfile.py
+
+
