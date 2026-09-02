@@ -8,5 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: javac javas/hello.java
-            java hello
+      - uses: actions/checkout@v4
+
+      - run: |
+          javac javas/hello.java
+          java -cp javas hello
