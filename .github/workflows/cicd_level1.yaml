@@ -4,20 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  say-hello:
+  java_code:
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "hello"
 
-  can_we_say:
-    runs-on: ubuntu-latest
     steps:
-      - run: print("hello")
-        shell: python
-
-  can_we_hello:
-    runs-on: ubuntu-latest
-    steps:
-      - run: System.out.ptintln("Hi");
-        shell: java
-
+      - run: javac hello.java
+            java hello
