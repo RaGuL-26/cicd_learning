@@ -8,3 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
+
+  can_we_say:
+    runs-on: ubuntu-latest
+    steps:
+      - run: print("hello")
+        shell: python
+
+  can_we_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: print("hello")
+        shell: java
+
