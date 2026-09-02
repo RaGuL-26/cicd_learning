@@ -8,8 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      - uses: actions/checkout@v4
 
       - run: |
           javac javas/hello.java
           java -cp javas hello
+
+  run_py_code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v4
+
+      - name : python-repo
+        run : |
+          python RaGuL-26/pyhtoncicd/python.py
