@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: javac hello.java
+      - run: javac javas/hello.java
             java hello
