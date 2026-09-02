@@ -16,9 +16,18 @@ jobs:
 
   run_py_code:
     runs-on: ubuntu-latest
-    steps:
-      - uses : actions/checkout@v4
 
-      - name : python-repo
-        run : |
-          python RaGuL-26/pyhtoncicd/python.py
+    steps:
+      - name: py_via_cicd
+        uses: actions/checkout@v4
+        with:
+         repository: RaGuL-26/pyhtoncicd
+         path : abcd
+
+
+      - name: Run python
+        run: python abcd/python.py
+
+
+
+
