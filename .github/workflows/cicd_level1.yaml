@@ -1,33 +1,12 @@
-name : cicd_lelevecho
+name : cicd_trigger
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  java_code:
+  job1:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - run: |
-          javac javas/hello.java
-          java -cp javas hello
-
-  run_py_code:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: py_via_cicd
-        uses: actions/checkout@v4
-        with:
-         repository: RaGuL-26/pyhtoncicd
-         path : abcd
-
-
-      - name: Run python
-        run: python abcd/python.py
-
-
-
-
+      - run: echo "main got pushed"
