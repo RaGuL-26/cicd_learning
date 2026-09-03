@@ -1,20 +1,18 @@
-name: cicd_trigger_forpy
+name: cicdpipeline
 
 on:
-  push:
-    branches:
-      - main
-
-  workflow_dispatch:
+  repository_dispatch:
+    types: [repo_a_code_updated]
 
 jobs:
-  job1:
+  check_py:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: RaGuL-26/pyhtoncicd
-          path: pythonpipeline
+          repository: RaGuL-26/company-code
+          path: company_code
 
-      - run: python pythonpipeline/pyss.py
+      - name: Run company code
+        run: python company_code/hello.py
