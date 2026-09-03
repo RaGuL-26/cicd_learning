@@ -15,4 +15,4 @@ jobs:
           path: company_code
 
       - name: Run company code
-        run: python company_code/hello.py
+        run: python company_code/*.py
