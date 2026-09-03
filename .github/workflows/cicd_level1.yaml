@@ -1,12 +1,20 @@
-name : cicd_trigger
+name: cicd_trigger_forpy
 
 on:
   push:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
   job1:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "main got pushed"
+      - uses: actions/checkout@v4
+        with:
+          repository: RaGuL-26/pyhtoncicd
+          path: pythonpipeline
+
+      - run: python pythonpipeline/pyss.py
