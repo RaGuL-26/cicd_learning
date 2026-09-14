@@ -5,6 +5,7 @@ on:
 
 jobs:
   job1 :
+    name : fastAPI
     runs-on : ubuntu-latest
     steps:
       - uses : actions/checkout@v4
@@ -14,7 +15,7 @@ jobs:
 
        
       - run : |
-         pip install -r requirements.txt
+         pip install -r FASTapi/requirements.txt
          python app/main.py
          shell : powershell
 
