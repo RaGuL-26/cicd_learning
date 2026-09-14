@@ -10,5 +10,5 @@ jobs:
       - uses : actions/checkout@v4
       - run : |
               echo "abcd"
-              if : true
-              echo "abbbdd"
+              - if : true
+                echo "abbbdd"
