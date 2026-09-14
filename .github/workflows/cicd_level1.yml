@@ -6,7 +6,7 @@ on:
 jobs:
   job1:
     env :
-      abcd : 3
+      abcd : 1
     runs-on : ubuntu-latest
     steps:
       - uses : actions/checkout@v4
