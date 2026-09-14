@@ -17,7 +17,7 @@ jobs:
       - run : |
          pip install -r fastAPI/requirements.txt
          python3 fastAPI/app/main.py
-         shell : bash
+        shell : bash
 
     
 
