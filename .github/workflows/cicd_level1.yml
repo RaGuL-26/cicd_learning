@@ -16,7 +16,7 @@ jobs:
        
       - run : |
          pip install -r fastAPI/requirements.txt
-         python3 fastAPI/app/main.py
+         python -m uvicorn app.main:app --reload
         shell : bash
 
     
