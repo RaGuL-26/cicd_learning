@@ -15,7 +15,7 @@ jobs:
 
        
       - run : |
-         pip install -r FASTapi/requirements.txt
+         pip install -r fastAPI/requirements.txt
          python app/main.py
          shell : powershell
 
