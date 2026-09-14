@@ -12,9 +12,11 @@ jobs:
           repository : RaGuL-26/cicd-project-helping
           path : fastAPI
 
-
-      - run : 
+       
+      - run : |
+         pip install -r requirements.txt
          python app/main.py
+         shell : powershell
 
     
 
