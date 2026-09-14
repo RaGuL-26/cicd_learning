@@ -1,20 +1,52 @@
-name: python_app_api
+name : practise_test
 
 on:
   workflow_dispatch:
 
+env:
+  APP_NAME : FastAPI practise
 jobs:
   job1:
-    name: fastAPI
-    runs-on: ubuntu-latest
-
+    env:
+      APP_NAME : FastAPI practise
+    name : check_app
+    runs-on : ubuntu_latest
     steps:
-      - uses: actions/checkout@v4
+      - uses : actions/checkout@v4
         with:
-          repository: RaGuL-26/cicd-project-helping
-          path: fastAPI
+          repository : RaGuL-26/cicd-project-helping
+          path : fastapi
+      - run : echo ${{ env.APP_NAME }}
+      - run : echo $APP_NAME
+      - run : echo %APP_NAME%
+        shell : cmd
+      - run : pip install -r fastapi/requirements.txt
+  
+  job2:
+    name : run_tests
+    needs : job1
+    runs-on : ubuntu_latest
+    steps:
+      - uses : actions/checkout@v4
+        with:
+          repository : RaGuL-26/cicd-project-helping
+          path : fastapi
+      - run : |
+          pip install -r fastapi/requirements.txt
+          python -m uvicorn app.main:app
 
-      - run: pip install -r fastAPI/requirements.txt
+  job3:
+    name: final_status
+    needs : job2
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo "pipeline completed"
 
-      - run: python -m uvicorn app.main:app
-        working-directory: fastAPI
+    
+
+
+
+      
+
+
+
