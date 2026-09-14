@@ -5,9 +5,13 @@ on:
 
 jobs:
   job1:
+    env :
+      abcd : 3
     runs-on : ubuntu-latest
     steps:
       - uses : actions/checkout@v4
       - run : echo "abcd"
-      - if : true   
+      - if : ${{ env.abcd == 1 }}   
         run : echo "abbbdd"
+      - if : ${{ env.abcd != 1 }}
+        run : echo wrong
