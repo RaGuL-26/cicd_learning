@@ -1,18 +1,20 @@
-name : ifcicd
+name : python_app_api
 
 on:
   workflow_dispatch:
 
 jobs:
-  job1:
-    env :
-      abcd : 1
+  job1 :
     runs-on : ubuntu-latest
     steps:
       - uses : actions/checkout@v4
-      
-      - if : ${{ env.abcd == 1 }}   
-        run : echo "abbbdd"
-      - if : ${{ env.abcd != 1 }}
-        run : echo wrong
-      - run : echo ${{ env.abcd}}
+        with :
+          repository : RaGuL-26/cicd-project-helping
+          path : fastAPI
+
+
+      - run : 
+         python app/main.py
+
+    
+
